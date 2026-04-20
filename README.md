@@ -19,7 +19,7 @@ The feedback loop runs every time. That is what makes this pipeline self-improvi
 
 ## Live demo
 
-Deployed URL: *add your Vercel URL here after deploy*
+Deployed URL: https://novamind-pipeline.vercel.app
 
 Loom walkthrough: *add your Loom URL here after recording*
 
