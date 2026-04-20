@@ -44,6 +44,7 @@ export async function runPipeline(topic: string): Promise<{
   const start = Date.now();
 
   // 1. Generate content
+      if (db.listContacts().length === 0) { const { autoSeed } = await import("./auto-seed"); await autoSeed(); }
   const contentPackage = await generateContentPackage(topic);
   db.saveContentPackage(contentPackage);
 
