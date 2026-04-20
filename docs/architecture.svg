@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#78716c"/>
+    </marker>
+    <marker id="arrow-loop" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/>
+    </marker>
+    <linearGradient id="brand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="700" fill="#fafaf9"/>
+
+  <text x="480" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#1c1917">NovaMind AI Content Pipeline</text>
+  <text x="480" y="54" text-anchor="middle" font-size="12" fill="#78716c">Multi-dimensional segmentation with a feedback loop that reclassifies contacts after every run</text>
+
+  <!-- Layer 1: Trigger -->
+  <g>
+    <rect x="40" y="78" width="880" height="64" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="56" y="98" font-size="10" font-weight="600" fill="#78716c" letter-spacing="0.08em">TRIGGER LAYER</text>
+    <g transform="translate(56,108)">
+      <rect width="170" height="26" rx="4" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <text x="85" y="17" text-anchor="middle" font-size="11" fill="#4c1d95" font-weight="600">Dashboard UI</text>
+    </g>
+    <g transform="translate(246,108)">
+      <rect width="200" height="26" rx="4" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <text x="100" y="17" text-anchor="middle" font-size="11" fill="#4c1d95" font-weight="600">CLI (npm run pipeline)</text>
+    </g>
+    <g transform="translate(466,108)">
+      <rect width="180" height="26" rx="4" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <text x="90" y="17" text-anchor="middle" font-size="11" fill="#4c1d95" font-weight="600">POST /api/pipeline</text>
+    </g>
+    <text x="756" y="124" font-size="11" fill="#78716c" font-style="italic">input: topic string</text>
+  </g>
+
+  <!-- Orchestrator -->
+  <g>
+    <rect x="330" y="170" width="300" height="50" rx="8" fill="url(#brand)" filter="url(#shadow)"/>
+    <text x="480" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Pipeline Orchestrator</text>
+    <text x="480" y="208" text-anchor="middle" font-size="11" fill="#ede9fe">src/lib/pipeline.ts · runPipeline(topic)</text>
+  </g>
+
+  <line x1="480" y1="142" x2="480" y2="168" stroke="#78716c" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 5 modules in sequence -->
+  <g>
+    <!-- 1. Content Generator -->
+    <g>
+      <rect x="40" y="250" width="175" height="130" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+      <rect x="40" y="250" width="175" height="26" rx="8" fill="#ede9fe"/>
+      <rect x="40" y="264" width="175" height="12" fill="#ede9fe"/>
+      <text x="52" y="268" font-size="10" font-weight="700" fill="#4c1d95">1. CONTENT GENERATOR</text>
+      <text x="52" y="293" font-size="10" fill="#292524">• Blog (400-600 words)</text>
+      <text x="52" y="309" font-size="10" fill="#292524">• 3 persona newsletters</text>
+      <text x="52" y="325" font-size="10" fill="#292524">• 3 first-lines per tier</text>
+      <text x="52" y="341" font-size="10" fill="#292524">= 9 openings from 3 calls</text>
+      <text x="52" y="366" font-size="9" fill="#78716c" font-style="italic">Claude + mock fallback</text>
+    </g>
+
+    <!-- 2. CRM Connector -->
+    <g>
+      <rect x="230" y="250" width="175" height="130" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+      <rect x="230" y="250" width="175" height="26" rx="8" fill="#fef3c7"/>
+      <rect x="230" y="264" width="175" height="12" fill="#fef3c7"/>
+      <text x="242" y="268" font-size="10" font-weight="700" fill="#78350f">2. CRM CONNECTOR</text>
+      <text x="242" y="293" font-size="10" fill="#292524">• Lifecycle-gated sends</text>
+      <text x="242" y="309" font-size="10" fill="#292524">• Skip Churned contacts</text>
+      <text x="242" y="325" font-size="10" fill="#292524">• Tier first-line swap</text>
+      <text x="242" y="341" font-size="10" fill="#292524">• Log campaign</text>
+      <text x="242" y="366" font-size="9" fill="#78716c" font-style="italic">Mock HubSpot v3 REST</text>
+    </g>
+
+    <!-- 3. Event Simulator -->
+    <g>
+      <rect x="420" y="250" width="175" height="130" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+      <rect x="420" y="250" width="175" height="26" rx="8" fill="#dcfce7"/>
+      <rect x="420" y="264" width="175" height="12" fill="#dcfce7"/>
+      <text x="432" y="268" font-size="10" font-weight="700" fill="#14532d">3. EVENT SIMULATOR</text>
+      <text x="432" y="293" font-size="10" fill="#292524">• 1 event per contact</text>
+      <text x="432" y="309" font-size="10" fill="#292524">• Persona × tier × LC × RFM</text>
+      <text x="432" y="325" font-size="10" fill="#292524">• Open, click, unsub, bounce</text>
+      <text x="432" y="341" font-size="10" fill="#292524">• Aggregate to metrics</text>
+      <text x="432" y="366" font-size="9" fill="#78716c" font-style="italic">Per-contact, not aggregate</text>
+    </g>
+
+    <!-- 4. Reclassifier (highlighted - feedback loop heart) -->
+    <g>
+      <rect x="610" y="250" width="175" height="130" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="610" y="250" width="175" height="26" rx="8" fill="#ddd6fe"/>
+      <rect x="610" y="264" width="175" height="12" fill="#ddd6fe"/>
+      <text x="622" y="268" font-size="10" font-weight="700" fill="#4c1d95">4. RECLASSIFIER ⟲</text>
+      <text x="622" y="293" font-size="10" fill="#292524">• Read updated events</text>
+      <text x="622" y="309" font-size="10" fill="#292524">• Re-compute lifecycle</text>
+      <text x="622" y="325" font-size="10" fill="#292524">• Re-compute RFM score</text>
+      <text x="622" y="341" font-size="10" fill="#292524">• Update every contact</text>
+      <text x="622" y="366" font-size="9" fill="#4c1d95" font-style="italic" font-weight="600">Feedback loop happens here</text>
+    </g>
+
+    <!-- 5. Insight Engine -->
+    <g>
+      <rect x="800" y="250" width="120" height="130" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+      <rect x="800" y="250" width="120" height="26" rx="8" fill="#fce7f3"/>
+      <rect x="800" y="264" width="120" height="12" fill="#fce7f3"/>
+      <text x="812" y="268" font-size="10" font-weight="700" fill="#831843">5. INSIGHTS</text>
+      <text x="812" y="293" font-size="10" fill="#292524">• Summary</text>
+      <text x="812" y="309" font-size="10" fill="#292524">• Cross-dim</text>
+      <text x="812" y="325" font-size="10" fill="#292524">  findings</text>
+      <text x="812" y="341" font-size="10" fill="#292524">• Next topics</text>
+      <text x="812" y="366" font-size="9" fill="#78716c" font-style="italic">AI-powered</text>
+    </g>
+  </g>
+
+  <!-- Sequential arrows -->
+  <line x1="215" y1="315" x2="228" y2="315" stroke="#78716c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="405" y1="315" x2="418" y2="315" stroke="#78716c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="595" y1="315" x2="608" y2="315" stroke="#78716c" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="785" y1="315" x2="798" y2="315" stroke="#78716c" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Arrows from orchestrator to each module -->
+  <path d="M 410 220 Q 410 235 127 248" stroke="#a8a29e" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+  <path d="M 440 220 Q 440 235 317 248" stroke="#a8a29e" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+  <path d="M 480 220 Q 480 235 507 248" stroke="#a8a29e" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+  <path d="M 520 220 Q 520 235 697 248" stroke="#a8a29e" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+  <path d="M 550 220 Q 550 235 860 248" stroke="#a8a29e" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+
+  <!-- FEEDBACK LOOP ARROW - the signature visual -->
+  <path d="M 697 380 Q 697 440 697 455" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrow-loop)"/>
+  <text x="710" y="420" font-size="10" fill="#7c3aed" font-weight="600">writes updated</text>
+  <text x="710" y="432" font-size="10" fill="#7c3aed" font-weight="600">labels</text>
+
+  <path d="M 507 455 Q 507 420 507 380" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrow-loop)"/>
+  <text x="380" y="420" font-size="10" fill="#7c3aed" font-weight="600">reads labels</text>
+  <text x="380" y="432" font-size="10" fill="#7c3aed" font-weight="600">next run</text>
+
+  <!-- Persistence Layer -->
+  <g>
+    <rect x="40" y="455" width="880" height="110" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="56" y="477" font-size="10" font-weight="600" fill="#78716c" letter-spacing="0.08em">PERSISTENCE LAYER · data/store.json · 7 collections</text>
+
+    <g transform="translate(56,490)">
+      <rect width="115" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="58" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">contacts</text>
+      <text x="58" y="33" text-anchor="middle" font-size="9" fill="#78716c">30 with 4 routing</text>
+      <text x="58" y="45" text-anchor="middle" font-size="9" fill="#78716c">dimensions each</text>
+    </g>
+    <g transform="translate(180,490)">
+      <rect width="125" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="62" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">contentPackages</text>
+      <text x="62" y="33" text-anchor="middle" font-size="9" fill="#78716c">blog + 3 newsletters</text>
+      <text x="62" y="45" text-anchor="middle" font-size="9" fill="#78716c">+ tier first lines</text>
+    </g>
+    <g transform="translate(314,490)">
+      <rect width="115" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="58" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">campaigns</text>
+      <text x="58" y="33" text-anchor="middle" font-size="9" fill="#78716c">per-segment send log</text>
+    </g>
+    <g transform="translate(438,490)">
+      <rect width="115" height="60" rx="4" fill="#ddd6fe" stroke="#7c3aed" stroke-width="1.5"/>
+      <text x="58" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">events ⟲</text>
+      <text x="58" y="33" text-anchor="middle" font-size="9" fill="#4c1d95">per-contact per-campaign</text>
+      <text x="58" y="45" text-anchor="middle" font-size="9" fill="#4c1d95">(spine of feedback loop)</text>
+    </g>
+    <g transform="translate(562,490)">
+      <rect width="115" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="58" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">metrics</text>
+      <text x="58" y="33" text-anchor="middle" font-size="9" fill="#78716c">aggregated from events</text>
+    </g>
+    <g transform="translate(686,490)">
+      <rect width="110" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="55" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">insights</text>
+      <text x="55" y="33" text-anchor="middle" font-size="9" fill="#78716c">AI reports +</text>
+      <text x="55" y="45" text-anchor="middle" font-size="9" fill="#78716c">cross-dim findings</text>
+    </g>
+    <g transform="translate(805,490)">
+      <rect width="100" height="60" rx="4" fill="#f5f5f4"/>
+      <text x="50" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#292524">runs</text>
+      <text x="50" y="33" text-anchor="middle" font-size="9" fill="#78716c">+ segment</text>
+      <text x="50" y="45" text-anchor="middle" font-size="9" fill="#78716c">snapshot</text>
+    </g>
+  </g>
+
+  <!-- Observability / dashboard -->
+  <g>
+    <rect x="40" y="585" width="880" height="90" rx="8" fill="#fff" stroke="#e7e5e4" filter="url(#shadow)"/>
+    <text x="56" y="606" font-size="10" font-weight="600" fill="#78716c" letter-spacing="0.08em">OBSERVABILITY · Dashboard surfaces</text>
+    <text x="56" y="628" font-size="11" fill="#292524">Content preview · Three persona newsletters · Three tier first lines each · Segment snapshot across all 4 dimensions</text>
+    <text x="56" y="648" font-size="11" fill="#292524">Per-persona metrics chart · AI insight card with cross-dimensional findings · Campaign log · Mock HubSpot request log</text>
+    <text x="56" y="666" font-size="10" fill="#78716c" font-style="italic">Cross-dim findings surface patterns like "Loyalty converts 3x better than Onboarding" that a merged persona model would hide</text>
+  </g>
+</svg>
