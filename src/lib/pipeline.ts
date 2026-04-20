@@ -61,6 +61,7 @@ export async function runPipeline(topic: string): Promise<{
   const metrics = campaignIds
     .map((id) => db.metricsForCampaign(id))
     .filter((m): m is NonNullable<typeof m> => !!m);
+    if (db.listContacts().length === 0) { const { autoSeed } = await import("./auto-seed"); await autoSeed(); }
   const contacts = db.listContacts();
   const insight = await generateInsightReport(
     contentPackage.id,
